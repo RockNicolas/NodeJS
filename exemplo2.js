@@ -3,9 +3,16 @@ var url = require("url");
 
 var server = http.createServer(function (req, res){
     res.writeHead(200, {'Content-Type': 'text/html'});
-    var retorno = fs.readFileSync("bem vindo")
-    
-    res.end(retorno);
+
+    fs.readFile('Bem vindo.html', function (error,arquivo){
+        if(error){
+            res.end("ERROR")
+        } else {
+            res.end(arquivo);
+        }
+    })
+    //var retorno = fs.readFileSync("bem vindo")
+    //res.end(retorno);
 
 });
 
