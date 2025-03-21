@@ -5,11 +5,14 @@ var server = http.createServer(function (req, res){
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write("<h1>Rock Pessoa</h1>");
     res.write("<h1>Teste</h1>");
-    res.end();
+    res.write("<h1>Teste</h1>");
+    res.write(req.headers["user-agent"]);
+    res.end("<hr/>");
+
 });
 
-server.listen(8080, function(){
-    console.log('Servidor inicalizado')
-});
+var serverOk = function(){
+    console.log('Servidor incializado!')
+}
 
 server.listen(8080, serverOk);
